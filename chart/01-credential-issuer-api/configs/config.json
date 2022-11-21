@@ -1,0 +1,15 @@
+{
+    "log": {
+        "name": "console",
+        "level": "info"
+    },
+    "credentialAPI": {
+        "hostname": "https://hpass-issuer-api-svc:{{ .Values.api.hpassIssuerApi.internalPort }}"
+    },
+    "appID": {
+        "retries": 1,
+        "retryDelay": 3000,
+        "timeout": 10000
+    },
+    "timeout": 10000
+}

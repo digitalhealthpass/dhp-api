@@ -1,0 +1,40 @@
+# Dependency directories
+node_modules
+.vscode
+.idea
+
+# dotenv environment variables file
+.env*
+
+# next.js build output
+.next
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# test output
+.nyc_output
+.coverage
+unittest.xml
+
+.history
+
+.DS_Store

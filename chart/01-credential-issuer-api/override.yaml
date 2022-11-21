@@ -1,0 +1,21 @@
+configuration:
+  environmentName: sandbox
+  issuer:
+    id: hpass.issuer1
+  cloudant:
+    db: db1
+    url: notused
+    iamKey: notused
+  appId:
+    url: <o-APP_ID_URL>
+    authServerHost: <o-APP_ID_AUTH_SERVER_HOST>
+    tenantId: <o-APP_ID_TENANT_ID>
+    clientId: <o-APP_ID_CLIENT_ID>
+    clientSecret: <o-APP_ID_SECRET>
+  session:
+    secret: t~entyfiveb^tterfliesinaut&mn104
+
+newRelic:
+  licenseKey: <o-NEW_RELIC_LICENSE_KEY>
+
+
