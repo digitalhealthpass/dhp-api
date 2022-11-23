@@ -2,8 +2,8 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-nameOverride: "credential-issuer-api"
-fullnameOverride: "credential-issuer-api"
+nameOverride: "dhp-api"
+fullnameOverride: "dhp-api"
 
 replicaCount: 1
 
@@ -20,68 +20,6 @@ service:
   externalPort: 33031
   internalPort: 3010
   ssl: disabled
-
-api:
-  hpassUi:
-    internalPort: 33000
-    externalPort: 33000
-  hpassApi:
-    internalPort: 33001
-    externalPort: 33001
-  hpassSimpConsentApi:
-    internalPort: 33002
-    externalPort: 33002
-  hpassIssuerApi:
-    internalPort: 33003
-    externalPort: 33003
-  hpassDataApi:
-    internalPort: 33004
-    externalPort: 33004
-  hpassWalletApi:
-    internalPort: 33005
-    externalPort: 33005
-  dataSubmissionApi:
-    internalPort: 33006
-    externalPort: 33006
-  hpassChallengeApi:
-    internalPort: 33007
-    externalPort: 33007
-  hpassWellnessScoreApi:
-    internalPort: 33008
-    externalPort: 33008
-  hpassPostboxApi:
-    internalPort: 33009
-    externalPort: 33009
-  nihUi:
-    internalPort: 33010
-    externalPort: 33010
-  dataSubmissionAdminUi:
-    internalPort: 33011
-    externalPort: 33011
-  verifierAdminApi:
-    internalPort: 33012
-    externalPort: 33012
-  verifierAdminUi:
-    internalPort: 33013
-    externalPort: 33013
-  hpassMeteringApi:
-    internalPort: 33014
-    externalPort: 33014
-  hpassPortalUI:
-    internalPort: 33015
-    externalPort: 33015  
-  verifierConfigApi:
-    internalPort: 33017
-    externalPort: 33017  
-  enterpriseApi:
-    internalPort: 33018
-    externalPort: 33018
-  genericIssuerApi: 
-    externalPort: 33103
-    internalPort: 33103
-  holderUi:
-    externalPort: 33020
-    internalPort: 33020
 
 configuration:
   probes: disabled
@@ -127,14 +65,6 @@ resources: {}
   # requests:
   #  cpu: 200m
   #  memory: 512Mi
-
-annotations:
-  TOOLCHAIN_ID: null
-  GIT_URL: null
-  GIT_BRANCH: null
-  GIT_COMMIT: null
-  USER_NAME: null
-  APPLICATION_VERSION: null
 
 serviceVolumeMounts:
   - name: hpass-hpass-api-cert-volume

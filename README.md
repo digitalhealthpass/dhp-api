@@ -58,7 +58,7 @@ To install the dependencies and run the service perform the following from a com
 Note: Environment variables must be set, as described in following sections, before starting the service. 
 
 ```
-cd credential-issuer-service
+cd dhp-api
 npm i
 node start
 ```
@@ -91,7 +91,7 @@ GUTHUB_SSH_KEY=$(cat ~/.ssh/id_rsa | base64 | tr -d \\n) # a valid GH ssh key
 IMAGE_TAG=foo  # Docker image tag
 
 # Build image (passing required SSH key)
-docker build --build-arg GITHUB_SSH_KEY="${GITHUB_SSH_KEY}" -t us.icr.io/dev-hpass-rns/credential-issuer-api:${IMAGE_TAG} .
+docker build --build-arg GITHUB_SSH_KEY="${GITHUB_SSH_KEY}" -t us.icr.io/dev-hpass-rns/dhp-api:${IMAGE_TAG} .
 ```
 
 ### Docker Registry
@@ -106,21 +106,21 @@ ibmcloud cr login
 echo -n "<API-KEY>" |docker login us.icr.io --username iamapikey --password-stdin
 
 # Push image to registry
-docker push us.icr.io/dev-hpass-rns/credential-issuer-api:${IMAGE_TAG}
+docker push us.icr.io/dev-hpass-rns/dhp-api:${IMAGE_TAG}
 ```
 
 ## Kubernetes Deploy and Run
 
 - (Delete Existing and) Install Helm Release
 ```bash
-helm delete hpass-sandbox-ns-01-01-credential-issuer-api
+helm delete my-namespace-dhp-api
 
-helm upgrade --install -f ./chart/01-credential-issuer-api/override.yaml hpass-sandbox-ns-01-01-credential-issuer-api ./chart/01-credential-issuer-api --set image.pullSecret=ibmcloud-toolchain-wh-hpass-us.icr.io --set annotations.TOOLCHAIN_ID=tekton --set annotations.GIT_URL=https://github.com/WH-HealthPass/healthpass-cicd-toolchain-umbrella --set annotations.GIT_BRANCH=verifier-admin-ui --set annotations.USER_NAME=f-whblocsolutions_merative.com --set annotations.GIT_COMMIT=45c0e1d7ea2bae4cfbf9ec877eebb0bacb4cd943 --set annotations.APPLICATION_VERSION=v_20221025151251 --set image.repository=us.icr.io/dev-hpass-rns/credential-issuer-api --set image.tag=<IMAGE_TAG> --namespace hpass-sandbox-ns-01
+helm upgrade --install -f ./chart/dhp-api/override.yaml my-namespace-dhp-api ./chart/dhp-api --set image.pullSecret=mypullsecret-us.icr.io --set image.repository=us.icr.io/dev-hpass-rns/dhp-api --set image.tag=<IMAGE_TAG> --namespace my-namespace
 ```
 
 - Flip to a Newly Pushed Image for Existing Helm Release/Deployment
 ```bash
-kubectl set image deployment/credential-issuer-api 01-credential-issuer-api=us.icr.io/dev-hpass-rns/credential-issuer-api:${IMAGE_TAG}
+kubectl set image deployment/dhp-api dhp-api=us.icr.io/dev-hpass-rns/dhp-api:${IMAGE_TAG}
 ```
 
 [↑ Top](#readme)
