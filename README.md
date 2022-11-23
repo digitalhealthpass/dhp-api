@@ -58,7 +58,7 @@ To install the dependencies and run the service perform the following from a com
 Note: Environment variables must be set, as described in following sections, before starting the service. 
 
 ```
-cd credential-issuer-service
+cd dhp-api
 npm i
 node start
 ```
@@ -91,7 +91,7 @@ GUTHUB_SSH_KEY=$(cat ~/.ssh/id_rsa | base64 | tr -d \\n) # a valid GH ssh key
 IMAGE_TAG=foo  # Docker image tag
 
 # Build image (passing required SSH key)
-docker build --build-arg GITHUB_SSH_KEY="${GITHUB_SSH_KEY}" -t us.icr.io/dev-hpass-rns/credential-issuer-api:${IMAGE_TAG} .
+docker build --build-arg GITHUB_SSH_KEY="${GITHUB_SSH_KEY}" -t us.icr.io/dev-hpass-rns/dhp-api:${IMAGE_TAG} .
 ```
 
 ### Docker Registry
@@ -106,7 +106,7 @@ ibmcloud cr login
 echo -n "<API-KEY>" |docker login us.icr.io --username iamapikey --password-stdin
 
 # Push image to registry
-docker push us.icr.io/dev-hpass-rns/credential-issuer-api:${IMAGE_TAG}
+docker push us.icr.io/dev-hpass-rns/dhp-api:${IMAGE_TAG}
 ```
 
 ## Kubernetes Deploy and Run
