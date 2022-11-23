@@ -1,10 +1,6 @@
-## Readme
+# dhp-api
 
-**Merative<sup>®</sup> Digital Health Pass**
-
-# Credential Issuer Service
-
-**Version 2.1, November 2022**   © Copyright Merative US L.P. and others 2020-2022
+**Version 2.1, November 2022**
 
 [↳ Introduction](#introduction)
 
