@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const axios = require('axios');
 const qs = require('query-string');
 
-const { AppIDHelper } = require('healthpass-auth-lib')
+const { AppIDHelper } = require('dhp-auth-lib')
 
 const options = {
     timeout: process.env.APP_ID_TIMEOUT || 10000,
