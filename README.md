@@ -187,6 +187,7 @@ The service can run locally and point to any of the configurable IBM Cloud or Az
 | NOSQL_DB_FILE_NAME      | couchdb.js                                                                                        |
 | AUTH_STRATEGY_FILE_NAME | no-auth-strategy.js                                                                               |
 | KEY_STORE_FILE_NAME     | nosql-store.js                                                                                    |
+| AUTH_STRATEGY           | DEVELOPMENT                                                                                       |
 
 [↑ Top](#readme)
 
