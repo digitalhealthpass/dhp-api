@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d747cb38-5581-4ec3-862e-5b78f45842a0",
+		"_postman_id": "7ee48bd6-c6bc-45f6-aaef-b582cca88f02",
 		"name": "dhp-issuer-service",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -611,6 +611,43 @@
 					"response": []
 				},
 				{
+					"name": "Create VC login Schema",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{ISSUER_ID_HEADER}}",
+								"value": "{{ISSUER_ID}}",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"verifierlogin\",\n    \"name\": \"Verifier Credential for login\",\n    \"version\": \"0.7\",\n    \"@type\": \"https://w3c-ccg.github.io/vc-json-schemas/schema/1.0/schema.json\",\n    \"schema\": {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"type\": \"object\",\n        \"required\": [\"name\",\"customer\", \"customerId\", \"organization\", \"organizationId\", \"type\", \"configId\", \"configName\"],\n        \"properties\": {\n            \"customer\": {\n                \"type\": \"string\",\n                \"visible\": true\n            },\n            \"customerId\": {\n                \"type\": \"string\",\n                \"visible\": false\n            },\n            \"name\": {\n                \"type\": \"string\",\n                \"visible\": true\n            },\n            \"organization\": {\n                \"type\": \"string\",\n                \"visible\": true\n            },\n            \"organizationId\": {\n                \"type\": \"string\",\n                \"visible\": false\n            },\n            \"configName\": {\n                \"type\": \"string\",\n                \"visible\": true\n            },\n            \"configId\": {\n                \"type\": \"string\",\n                \"visible\": false\n            },\n            \"type\": {\n                \"type\": \"string\",\n                \"visible\": false\n            },\n            \"verifierType\": {\n                \"description\": \"Verifier types defined by customer.\",\n                \"type\": \"string\",\n                \"visible\": true\n            }\n        }\n    }\n    \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CREDENTIAL_ISSUER_SERVICE_URL}}/schemas",
+							"host": [
+								"{{CREDENTIAL_ISSUER_SERVICE_URL}}"
+							],
+							"path": [
+								"schemas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "get Schema by Id",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -875,6 +912,53 @@
 									"key": "type",
 									"value": "string",
 									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create VC Login Credential",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{ISSUER_ID_HEADER}}",
+								"value": "{{ISSUER_ID}}",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"schemaID\": \"did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:363fab409046f770cdbd71303cfe2cf2d3c021d483f075aaccf232c4b26e0291;id=verifierlogin;version=0.7\",\n    \"data\": {\n        \"type\": \"id\",\n        \"configName\": \"Name of configuration\",\n        \"configId\": \"id:latest\",\n        \"customer\": \"Richard Scott\",\n        \"customerId\": \"customerId\",\n        \"name\": \"Richard Scott\",\n        \"organization\": \"rmscott-org\",\n        \"organizationId\": \"rmscott-orgid\",\n        \"verifierType\": \"verfierType\"\n    },\n    \"type\": [ \"VC\" ],\n    \"expirationDate\": \"2033-01-01T00:00:00Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CREDENTIAL_ISSUER_SERVICE_URL}}/credentials?output=qrcode&type=string",
+							"host": [
+								"{{CREDENTIAL_ISSUER_SERVICE_URL}}"
+							],
+							"path": [
+								"credentials"
+							],
+							"query": [
+								{
+									"key": "output",
+									"value": "qrcode"
+								},
+								{
+									"key": "type",
+									"value": "string"
 								}
 							]
 						}
