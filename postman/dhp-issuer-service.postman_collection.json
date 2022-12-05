@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7ee48bd6-c6bc-45f6-aaef-b582cca88f02",
+		"_postman_id": "195ad314-7e71-4e4d-81a4-22bd60de9067",
 		"name": "dhp-issuer-service",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -612,6 +612,22 @@
 				},
 				{
 					"name": "Create VC login Schema",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"payload\");",
+									"});",
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.environment.set(\"DID_VC_SCHEMA\", jsonData.payload.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -936,7 +952,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"schemaID\": \"did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:363fab409046f770cdbd71303cfe2cf2d3c021d483f075aaccf232c4b26e0291;id=verifierlogin;version=0.7\",\n    \"data\": {\n        \"type\": \"id\",\n        \"configName\": \"Name of configuration\",\n        \"configId\": \"id:latest\",\n        \"customer\": \"Richard Scott\",\n        \"customerId\": \"customerId\",\n        \"name\": \"Richard Scott\",\n        \"organization\": \"rmscott-org\",\n        \"organizationId\": \"rmscott-orgid\",\n        \"verifierType\": \"verfierType\"\n    },\n    \"type\": [ \"VC\" ],\n    \"expirationDate\": \"2033-01-01T00:00:00Z\"\n}",
+							"raw": "{\n    \"schemaID\": \"{{DID_VC_SCHEMA}}\",\n    \"data\": {\n        \"type\": \"id\",\n        \"configName\": \"Name of configuration\",\n        \"configId\": \"id:latest\",\n        \"customer\": \"Richard Scott\",\n        \"customerId\": \"customerId\",\n        \"name\": \"Richard Scott\",\n        \"organization\": \"rmscott-org\",\n        \"organizationId\": \"rmscott-orgid\",\n        \"verifierType\": \"verfierType\"\n    },\n    \"type\": [ \"VC\" ],\n    \"expirationDate\": \"2033-01-01T00:00:00Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
