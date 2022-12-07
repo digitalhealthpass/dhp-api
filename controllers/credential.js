@@ -18,11 +18,8 @@ const logger = require('../utils/logger').getLogger(
 );
 
 const qrCodeOptions = {
-    errorCorrectionLevel: 'M',
-    type: 'png',
-    quality: 0.92,
-    margin: 10,
-    width: 300,
+    scale: 2,
+    errorCorrectionLevel: 'L',
 }
 
 const getCredentailFormat = (type) => {
