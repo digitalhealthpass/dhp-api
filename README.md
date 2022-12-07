@@ -131,6 +131,7 @@ The following environment variables must be set before starting the application 
 | CONTEXT_ROOT         | The context root for all endpoints.  e.g. /api/v1/credential-issuer                            |
 | USE_HTTPS            | true or false.  If true, then endpoints must be accessed via https, otherwise http             |
 | SESSION_SECRET       | A random session secret used by [cookie-session](https://www.npmjs.com/package/cookie-session) |
+| ISSUER_ID            | The issuer id used for issuing Verifier Configuration Login credentials. e.g. hpass.issuer1    |
 
 [↑ Top](#readme)
 
