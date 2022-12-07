@@ -11,7 +11,7 @@ const jsonCredential = {
         "https://www.w3.org/2018/credentials/v1"
     ],
     "credentialSchema": {
-        "id": "did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:34a22bd87d8bc1bed8f3123c4a6c1250bb1c338bc0b98914f167bf258e163723;id=idhp-vaccination;version=0.3",
+        "id": "did:dhp:eda79af0650d3b8d66c3072e5b046123c76b1a48440f0d719a6de7f18c5420ec:b9e1fa9393aaa6173685856c15784fcf6cc23c145ad5198d4d918512ddaa2f52;id=idhp-vaccination;version=0.3",
         "type": "JsonSchemaValidator2019"
     },
     "credentialSubject": {
@@ -34,15 +34,15 @@ const jsonCredential = {
         "type": "Vaccination Card"
     },
     "expirationDate": "2032-09-28T15:52:47Z",
-    "id": "did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:34a22bd87d8bc1bed8f3123c4a6c1250bb1c338bc0b98914f167bf258e163723;vc-a5aca1a2-2015-471f-ab0d-98fabd72a9ba",
-    "issuanceDate": "2022-11-03T19:03:16Z",
-    "issuer": "did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:34a22bd87d8bc1bed8f3123c4a6c1250bb1c338bc0b98914f167bf258e163723",
+    "id": "did:dhp:eda79af0650d3b8d66c3072e5b046123c76b1a48440f0d719a6de7f18c5420ec:b9e1fa9393aaa6173685856c15784fcf6cc23c145ad5198d4d918512ddaa2f52;vc-f603c658-980b-49a1-8365-b5b1b17d74c9",
+    "issuanceDate": "2022-12-07T18:32:16Z",
+    "issuer": "did:dhp:eda79af0650d3b8d66c3072e5b046123c76b1a48440f0d719a6de7f18c5420ec:b9e1fa9393aaa6173685856c15784fcf6cc23c145ad5198d4d918512ddaa2f52",
     "proof": {
-        "created": "2022-11-03T19:03:16Z",
-        "creator": "did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:34a22bd87d8bc1bed8f3123c4a6c1250bb1c338bc0b98914f167bf258e163723-key1",
-        "nonce": "228aa4c0-9b2e-4cda-bcad-a985f1dc0537",
+        "created": "2022-12-07T18:32:16Z",
+        "creator": "did:dhp:eda79af0650d3b8d66c3072e5b046123c76b1a48440f0d719a6de7f18c5420ec:b9e1fa9393aaa6173685856c15784fcf6cc23c145ad5198d4d918512ddaa2f52-key1",
+        "nonce": "47632a7a-7961-4a0e-a002-6c9353f01c47",
         "type": "EcdsaSecp256r1Signature2019",
-        "signatureValue": "oe/nFzTNrxq3/EFj1IKz0ysD+LD463HGDXmf3+qEzL/2GclvKcNMrOE5FbowyIb9ZshGc+27sK1qxeKRN3hxtQ=="
+        "signatureValue": "CQM8z7Ze060qHTIp7+SBROyZgl06dmoyIk3A2TNlGtrhTq1scHxiEhBppkIsje54VCrSBjFWYDbGR5nDanrV6A=="
     },
     "type": [
         "IBMDigitalHealthPass",
@@ -122,7 +122,7 @@ const obfuscatedJsonCredential = {
     ]
 }
 
-const encodedCredential = 'eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJjcmVkZW50aWFsU2NoZW1hIjp7ImlkIjoiZGlkOmRocDozY2IxOThmZDQ1YjcxNGUxYTU5ZjcwZjJmOTkyZDk5NjRmZmVmMWNhNGQ4YzBiMWMxYmVkOGU0MDM2NjQzYjYwOjM0YTIyYmQ4N2Q4YmMxYmVkOGYzMTIzYzRhNmMxMjUwYmIxYzMzOGJjMGI5ODkxNGYxNjdiZjI1OGUxNjM3MjM7aWQ9aWRocC12YWNjaW5hdGlvbjt2ZXJzaW9uPTAuMyIsInR5cGUiOiJKc29uU2NoZW1hVmFsaWRhdG9yMjAxOSJ9LCJjcmVkZW50aWFsU3ViamVjdCI6eyJiYXRjaE51bWJlciI6IjEyMzQ1IiwiY291bnRyeU9mVmFjY2luYXRpb24iOiJ1cyIsImRhdGVPZlZhY2NpbmF0aW9uIjoiMjAyMi0wOS0xNCIsImRpc2Vhc2UiOiJDT1ZJRC0xOSIsImRpc3BsYXkiOiIjMzJDRDMyIiwiZG9zZU51bWJlciI6MiwiZG9zZXNQZXJDeWNsZSI6MiwibWFya2V0aW5nQXV0aG9yaXphdGlvbkhvbGRlciI6IlBmaXplciBJbmMiLCJtZWRpY2luYWxQcm9kdWN0Q29kZSI6IjIwOCIsInJlY2lwaWVudCI6eyJiaXJ0aERhdGUiOiIyMDAwLTEwLTEwIiwiZmFtaWx5TmFtZSI6IlNtaXRoIiwiZ2l2ZW5OYW1lIjoiSmFuZSIsIm1pZGRsZU5hbWUiOiJTYXJhaCJ9LCJzdGF0ZU9mVmFjY2luYXRpb24iOiJjYSIsInR5cGUiOiJWYWNjaW5hdGlvbiBDYXJkIn0sImV4cGlyYXRpb25EYXRlIjoiMjAzMi0wOS0yOFQxNTo1Mjo0N1oiLCJpZCI6ImRpZDpkaHA6M2NiMTk4ZmQ0NWI3MTRlMWE1OWY3MGYyZjk5MmQ5OTY0ZmZlZjFjYTRkOGMwYjFjMWJlZDhlNDAzNjY0M2I2MDozNGEyMmJkODdkOGJjMWJlZDhmMzEyM2M0YTZjMTI1MGJiMWMzMzhiYzBiOTg5MTRmMTY3YmYyNThlMTYzNzIzO3ZjLTMwNzZlZjUxLTFkMzItNDgxYi04OTVhLWVhOWJmNGMzNTM3NyIsImlzc3VhbmNlRGF0ZSI6IjIwMjItMTEtMDNUMTk6MDI6MzBaIiwiaXNzdWVyIjoiZGlkOmRocDozY2IxOThmZDQ1YjcxNGUxYTU5ZjcwZjJmOTkyZDk5NjRmZmVmMWNhNGQ4YzBiMWMxYmVkOGU0MDM2NjQzYjYwOjM0YTIyYmQ4N2Q4YmMxYmVkOGYzMTIzYzRhNmMxMjUwYmIxYzMzOGJjMGI5ODkxNGYxNjdiZjI1OGUxNjM3MjMiLCJwcm9vZiI6eyJjcmVhdGVkIjoiMjAyMi0xMS0wM1QxOTowMjozMFoiLCJjcmVhdG9yIjoiZGlkOmRocDozY2IxOThmZDQ1YjcxNGUxYTU5ZjcwZjJmOTkyZDk5NjRmZmVmMWNhNGQ4YzBiMWMxYmVkOGU0MDM2NjQzYjYwOjM0YTIyYmQ4N2Q4YmMxYmVkOGYzMTIzYzRhNmMxMjUwYmIxYzMzOGJjMGI5ODkxNGYxNjdiZjI1OGUxNjM3MjMta2V5MSIsIm5vbmNlIjoiYTFiODU2MGMtMmViNy00ZDJlLThlMzQtYmZiMTczNjIxMGQ2IiwidHlwZSI6IkVjZHNhU2VjcDI1NnIxU2lnbmF0dXJlMjAxOSIsInNpZ25hdHVyZVZhbHVlIjoiVDM0RkN0NlRyaWxnM1dUa0VGT2FnRVJIazJCVXlHY3FRcEFMTzB2dm1rckRya00veUdEZ0JXMnRqRzVKZnZacStsbElBWXRwZHNtbVd0ZnFnVG96Y2c9PSJ9LCJ0eXBlIjpbIklCTURpZ2l0YWxIZWFsdGhQYXNzIiwiVmFjY2luYXRpb24iLCJWZXJpZmlhYmxlQ3JlZGVudGlhbCJdfQ==';
+const encodedCredential = 'eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJjcmVkZW50aWFsU2NoZW1hIjp7ImlkIjoiZGlkOmRocDplZGE3OWFmMDY1MGQzYjhkNjZjMzA3MmU1YjA0NjEyM2M3NmIxYTQ4NDQwZjBkNzE5YTZkZTdmMThjNTQyMGVjOmI5ZTFmYTkzOTNhYWE2MTczNjg1ODU2YzE1Nzg0ZmNmNmNjMjNjMTQ1YWQ1MTk4ZDRkOTE4NTEyZGRhYTJmNTI7aWQ9aWRocC12YWNjaW5hdGlvbjt2ZXJzaW9uPTAuMyIsInR5cGUiOiJKc29uU2NoZW1hVmFsaWRhdG9yMjAxOSJ9LCJjcmVkZW50aWFsU3ViamVjdCI6eyJiYXRjaE51bWJlciI6IjEyMzQ1IiwiY291bnRyeU9mVmFjY2luYXRpb24iOiJ1cyIsImRhdGVPZlZhY2NpbmF0aW9uIjoiMjAyMi0wOS0xNCIsImRpc2Vhc2UiOiJDT1ZJRC0xOSIsImRpc3BsYXkiOiIjMzJDRDMyIiwiZG9zZU51bWJlciI6MiwiZG9zZXNQZXJDeWNsZSI6MiwibWFya2V0aW5nQXV0aG9yaXphdGlvbkhvbGRlciI6IlBmaXplciBJbmMiLCJtZWRpY2luYWxQcm9kdWN0Q29kZSI6IjIwOCIsInJlY2lwaWVudCI6eyJiaXJ0aERhdGUiOiIyMDAwLTEwLTEwIiwiZmFtaWx5TmFtZSI6IlNtaXRoIiwiZ2l2ZW5OYW1lIjoiSmFuZSIsIm1pZGRsZU5hbWUiOiJTYXJhaCJ9LCJzdGF0ZU9mVmFjY2luYXRpb24iOiJjYSIsInR5cGUiOiJWYWNjaW5hdGlvbiBDYXJkIn0sImV4cGlyYXRpb25EYXRlIjoiMjAzMi0wOS0yOFQxNTo1Mjo0N1oiLCJpZCI6ImRpZDpkaHA6ZWRhNzlhZjA2NTBkM2I4ZDY2YzMwNzJlNWIwNDYxMjNjNzZiMWE0ODQ0MGYwZDcxOWE2ZGU3ZjE4YzU0MjBlYzpiOWUxZmE5MzkzYWFhNjE3MzY4NTg1NmMxNTc4NGZjZjZjYzIzYzE0NWFkNTE5OGQ0ZDkxODUxMmRkYWEyZjUyO3ZjLWY2MDNjNjU4LTk4MGItNDlhMS04MzY1LWI1YjFiMTdkNzRjOSIsImlzc3VhbmNlRGF0ZSI6IjIwMjItMTItMDdUMTg6MzI6MTZaIiwiaXNzdWVyIjoiZGlkOmRocDplZGE3OWFmMDY1MGQzYjhkNjZjMzA3MmU1YjA0NjEyM2M3NmIxYTQ4NDQwZjBkNzE5YTZkZTdmMThjNTQyMGVjOmI5ZTFmYTkzOTNhYWE2MTczNjg1ODU2YzE1Nzg0ZmNmNmNjMjNjMTQ1YWQ1MTk4ZDRkOTE4NTEyZGRhYTJmNTIiLCJwcm9vZiI6eyJjcmVhdGVkIjoiMjAyMi0xMi0wN1QxODozMjoxNloiLCJjcmVhdG9yIjoiZGlkOmRocDplZGE3OWFmMDY1MGQzYjhkNjZjMzA3MmU1YjA0NjEyM2M3NmIxYTQ4NDQwZjBkNzE5YTZkZTdmMThjNTQyMGVjOmI5ZTFmYTkzOTNhYWE2MTczNjg1ODU2YzE1Nzg0ZmNmNmNjMjNjMTQ1YWQ1MTk4ZDRkOTE4NTEyZGRhYTJmNTIta2V5MSIsIm5vbmNlIjoiNDc2MzJhN2EtNzk2MS00YTBlLWEwMDItNmM5MzUzZjAxYzQ3IiwidHlwZSI6IkVjZHNhU2VjcDI1NnIxU2lnbmF0dXJlMjAxOSIsInNpZ25hdHVyZVZhbHVlIjoiQ1FNOHo3WmUwNjBxSFRJcDcrU0JST3laZ2wwNmRtb3lJazNBMlRObEd0cmhUcTFzY0h4aUVoQnBwa0lzamU1NFZDclNCakZXWURiR1I1bkRhbnJWNkE9PSJ9LCJ0eXBlIjpbIklCTURpZ2l0YWxIZWFsdGhQYXNzIiwiVmFjY2luYXRpb24iLCJWZXJpZmlhYmxlQ3JlZGVudGlhbCJdfQ==';
 
 const expiredCredential = {
     "@context": [
@@ -170,7 +170,7 @@ const expiredCredential = {
 }
 
 const credentialRequestBody = {
-    "schemaID": "did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:34a22bd87d8bc1bed8f3123c4a6c1250bb1c338bc0b98914f167bf258e163723;id=idhp-vaccination;version=0.3",
+    "schemaID": "did:dhp:eda79af0650d3b8d66c3072e5b046123c76b1a48440f0d719a6de7f18c5420ec:b9e1fa9393aaa6173685856c15784fcf6cc23c145ad5198d4d918512ddaa2f52;id=idhp-vaccination;version=0.3",
     "type": [
         "IBMDigitalHealthPass",
         "Vaccination"
@@ -202,7 +202,7 @@ const vcLoginCredential = {
         "https://www.w3.org/2018/credentials/v1"
     ],
     "credentialSchema": {
-        "id": "did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:34a22bd87d8bc1bed8f3123c4a6c1250bb1c338bc0b98914f167bf258e163723;id=verifierlogin;version=0.7",
+        "id": "did:dhp:eda79af0650d3b8d66c3072e5b046123c76b1a48440f0d719a6de7f18c5420ec:b9e1fa9393aaa6173685856c15784fcf6cc23c145ad5198d4d918512ddaa2f52;id=verifierlogin;version=0.7",
         "type": "JsonSchemaValidator2019"
     },
     "credentialSubject": {
@@ -213,42 +213,41 @@ const vcLoginCredential = {
         "name": "Richard Scott",
         "organization": "rmscott-org",
         "organizationId": "rmscott-orgid",
-        "type": "id",
+        "type": "VerifierCredential",
         "verifierType": "verfierType"
     },
     "expirationDate": "2033-01-01T00:00:00Z",
-    "id": "did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:34a22bd87d8bc1bed8f3123c4a6c1250bb1c338bc0b98914f167bf258e163723;vc-ffd4a31a-5911-4b27-a06e-9caa6fe8e8fb",
-    "issuanceDate": "2022-11-03T19:20:10Z",
-    "issuer": "did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:34a22bd87d8bc1bed8f3123c4a6c1250bb1c338bc0b98914f167bf258e163723",
+    "id": "did:dhp:eda79af0650d3b8d66c3072e5b046123c76b1a48440f0d719a6de7f18c5420ec:b9e1fa9393aaa6173685856c15784fcf6cc23c145ad5198d4d918512ddaa2f52;vc-31adb501-6a1b-49e6-8aa9-9a5f39869a1c",
+    "issuanceDate": "2022-12-07T18:58:45Z",
+    "issuer": "did:dhp:eda79af0650d3b8d66c3072e5b046123c76b1a48440f0d719a6de7f18c5420ec:b9e1fa9393aaa6173685856c15784fcf6cc23c145ad5198d4d918512ddaa2f52",
     "proof": {
-        "created": "2022-11-03T19:20:10Z",
-        "creator": "did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:34a22bd87d8bc1bed8f3123c4a6c1250bb1c338bc0b98914f167bf258e163723-key1",
-        "nonce": "a7dd4b7e-55d9-43f9-b0ad-5f843f17e8e0",
+        "created": "2022-12-07T18:58:45Z",
+        "creator": "did:dhp:eda79af0650d3b8d66c3072e5b046123c76b1a48440f0d719a6de7f18c5420ec:b9e1fa9393aaa6173685856c15784fcf6cc23c145ad5198d4d918512ddaa2f52-key1",
+        "nonce": "1c678220-e2c3-4bbe-a31b-e055104de9e1",
         "type": "EcdsaSecp256r1Signature2019",
-        "signatureValue": "4DOiByrTY0rbC8ezNlmiCocFs3qsT9JD9XEs+pJJ0d/RynW9ZQIPyosNvYGQI96X4jYuX+wmTlfQfCtJnQfOBw=="
+        "signatureValue": "T30e1/T3LKzgSSoHw+uKP8O3FLEdJWYRGYd1UsDWjydvocN95p7Ana+DBi6Yqx43lsXjr+vnEeVnXXM3bDAdDg=="
     },
     "type": [
-        "IBMDigitalHealthPass",
-        "VCLogin",
+        "VerifierCredential",
         "VerifiableCredential"
     ]
 }
 
 const schema = {
-    "_id": "did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:34a22bd87d8bc1bed8f3123c4a6c1250bb1c338bc0b98914f167bf258e163723;id=idhp-vaccination;version=0.3",
-    "_rev": "3-c302e74a5c43d0181d1db612914cc4cc",
+    "_id": "did:dhp:eda79af0650d3b8d66c3072e5b046123c76b1a48440f0d719a6de7f18c5420ec:b9e1fa9393aaa6173685856c15784fcf6cc23c145ad5198d4d918512ddaa2f52;id=idhp-vaccination;version=0.3",
+    "_rev": "1-be18c36780aae9c8a27bf522b1c0a764",
     "@type": "https://w3c-ccg.github.io/vc-json-schemas/schema/1.0/schema.json",
-    "author": "did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:34a22bd87d8bc1bed8f3123c4a6c1250bb1c338bc0b98914f167bf258e163723",
+    "author": "did:dhp:eda79af0650d3b8d66c3072e5b046123c76b1a48440f0d719a6de7f18c5420ec:b9e1fa9393aaa6173685856c15784fcf6cc23c145ad5198d4d918512ddaa2f52",
     "authorName": "Digital Health Pass Issuer",
-    "authored": "2022-11-03T19:17:59Z",
+    "authored": "2022-12-07T18:26:36Z",
     "modelVersion": "0.3",
     "name": "Proof of Vaccination",
     "proof": {
-        "created": "2022-11-03T19:17:59Z",
+        "created": "2022-12-07T18:26:36Z",
         "creator": "hpass.integration1-kp",
-        "nonce": "2e1d4e97-5a39-4ea1-b799-6fc687edfd78",
+        "nonce": "222be965-986c-4f5e-a20e-81b034a3c9c0",
         "type": "EcdsaSecp256r1Signature2019",
-        "signatureValue": "xuWISEaw6DCIFleik3u//fXAMGhDSMv8YxqdkBLxxjstvYfk/HEmm//xp22UNmZfiNDsywqHlba+yPD7WrCf2g=="
+        "signatureValue": "0r1xQ5ZaoOnCCExJtohs8BHy2tQy8wxpjUl32iIFmxMf8pBCsTqGHiD1f8me+UKOI7hQvXKI8yk54FEefCzSiA=="
     },
     "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -763,7 +762,7 @@ const keyPair = {
             "d": "WJjckiP1Zt1OM0HQ0UVOngTSWxEZNjPNT6wr2F3gGeE"
         }
     ],
-    "creator": "did:dhp:3cb198fd45b714e1a59f70f2f992d9964ffef1ca4d8c0b1c1bed8e4036643b60:34a22bd87d8bc1bed8f3123c4a6c1250bb1c338bc0b98914f167bf258e163723",
+    "creator": "did:dhp:eda79af0650d3b8d66c3072e5b046123c76b1a48440f0d719a6de7f18c5420ec:b9e1fa9393aaa6173685856c15784fcf6cc23c145ad5198d4d918512ddaa2f52",
     "version": 1
 }
 

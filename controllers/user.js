@@ -6,6 +6,7 @@ const userHelper = require('../helpers/user-helper');
 const credentialHelper = require('../helpers/credential-helper');
 const validator = require('../helpers/validator-helper');
 const { getErrorInfo } = require('../utils');
+const constants = require('../helpers/constants');
 
 const logger = require('../utils/logger').getLogger(
     'user-controller'
@@ -68,9 +69,9 @@ const loginAzure = async (req, res) => {
 
 const login = async (req, res) => {
     switch(process.env.AUTH_STRATEGY_FILE_NAME) {
-        case 'app-id-auth-strategy.js':
+        case constants.AUTH_STRATEGY_FILE_NAMES.APP_ID:
             return loginAppId(req, res);
-        case 'azure-auth-strategy.js':
+        case constants.AUTH_STRATEGY_FILE_NAMES.AZURE:
             return loginAzure(req, res);
         default:
             return loginJWT(req, res);

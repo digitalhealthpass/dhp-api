@@ -305,6 +305,16 @@ const validateVcCredentialData = async (encodedCred) => {
     return { credSchemaId, credIssuerDID, id };
 }
 
+const getDefaultIssuerId = () => {
+    const issuerID = process.env.ISSUER_ID;
+    if (issuerID) {
+        return issuerID;
+    }
+    throw new Error(
+        `Environment variable ISSUER_ID is not set. Please check the deployment`
+    )
+}
+
 const validateVcIssuerDID = async (credSchemaId, credIssuerDID, credId) => {
     let isValid = false;
     let authorizedLoginCredIssuerDID;
@@ -318,7 +328,7 @@ const validateVcIssuerDID = async (credSchemaId, credIssuerDID, credId) => {
         logger.debug(`Cred issuerDID ${credIssuerDID} , schemaName ${schemaNameData}`);
 
         try {
-            authorizedLoginCredIssuerDID = await issuerHelper.getIssuerDID(process.env.ISSUER_ID);
+            authorizedLoginCredIssuerDID = await issuerHelper.getIssuerDID(getDefaultIssuerId());
         } catch (err) {
             const { errorStatus, errorMsg } = getErrorInfo(err);
             logger.warn(`Error calling getIssuerOwn of ${credId} with ${errorStatus}: ${errorMsg}`);
@@ -348,7 +358,6 @@ const validateVcIssuerDID = async (credSchemaId, credIssuerDID, credId) => {
         throw error;
     }
 };
-
 
 module.exports = {
     createJsonCredential,

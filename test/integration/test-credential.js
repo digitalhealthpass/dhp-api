@@ -45,10 +45,6 @@ describe('Credential endpoints', function test() {
                     expect(res).to.have.status(201);
                     const actualCred = res.body.payload
 
-                    encodedCred = Buffer
-                        .from(JSON.stringify(actualCred))
-                        .toString('base64');
-
                     const expectedCred = JSON.parse(
                         JSON.stringify(dataFactory.jsonCredential)
                     );
@@ -293,7 +289,7 @@ describe('Credential endpoints', function test() {
                 .end((err, res) => {
                     expect(err).to.be.null;
                     expect(res).to.have.status(200);
-                    const payload = res.body.payload;
+                    const { payload } = res.body;
 
                     expect(payload.verification_status)
                         .to.equal('VALID');
@@ -510,11 +506,6 @@ describe('Credential endpoints', function test() {
         });
 
         it('unhappy get revoked - missing issuer id header', (done) => {
-            const expected = {
-                id: revokedId,
-                reason: 'wrong credential'
-            }
-
             chai.request(server)
                 .get(`${contextRoot}/credentials/revoked/${revokedId}`)
                 .set('Authorization', `Bearer ${token}`)

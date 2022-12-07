@@ -92,20 +92,9 @@ const loginWithAzureCredentials = async (username, password) => {
     }
 }
 
-const getDefaultIssuerId = () => {
-    const issuerID = process.env.ISSUER_ID;
-    if (issuerID) {
-        return issuerID;
-    }
-    throw new Error(
-        `Environment variable ISSUER_ID is not set. Please check the deployment`
-    )
-}
-
 module.exports = {
     getAppIdHelper,
     getJwtToken,
     validateEmailAndPassword,
     loginWithAzureCredentials,
-    getDefaultIssuerId,
 };
