@@ -11,5 +11,5 @@ const router = express.Router();
 
 router.post('/login', requestLogger, userController.login);
 router.post('/login/azure', requestLogger, userController.loginAzure);
-router.post('/login/loginWithCredential', requestLogger, userController.loginWithVC);
+router.post('/loginWithCredential', requestLogger, userController.loginWithVC);
 module.exports = router;
