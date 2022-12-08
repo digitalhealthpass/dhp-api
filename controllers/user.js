@@ -11,7 +11,9 @@ const logger = require('../utils/logger').getLogger(
     'user-controller'
 );
 
-const authClient = userHelper.getAppIdHelper();
+const authClient = process.env.AUTH_STRATEGY_FILE_NAME === 'azure-auth-strategy.js'
+    ? userHelper.getAppIdHelper()
+    : undefined;
 
 const handleFailedLogin = (error, res) => {
     const { errorStatus, errorMsg } = getErrorInfo(error);

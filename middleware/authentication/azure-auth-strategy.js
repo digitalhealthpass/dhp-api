@@ -3,9 +3,29 @@
 // SPDX-Licence-Identifier: Apache 2.0
 
 const passport = require('passport');
+const { BearerStrategy } = require('passport-azure-ad');
 
 const AuthStrategy = require('./auth-strategy');
 const constants = require('../../helpers/constants');
+
+const tenantID = process.env.AZURE_TENANT_ID;
+const clientID = process.env.AZURE_CLIENT_ID;
+const audience = process.env.AZURE_AUDIANCE;
+
+const bearerStrategyOptions = {
+    identityMetadata: `https://login.microsoftonline.com/${  tenantID  }/v2.0/.well-known/openid-configuration`,
+    clientID,
+    issuer: `https://sts.windows.net/${  tenantID  }/`,
+    audience,
+    loggingLevel: "info",
+    passReqToCallback: false
+};
+
+const bearerStrategy = new BearerStrategy(bearerStrategyOptions, (token, done) => {
+    done(null, {}, token);
+});
+
+passport.use(bearerStrategy);
 
 const authenticate = passport.authenticate("oauth-bearer", { session: false });
 
@@ -27,7 +47,8 @@ const checkRole = (role) => (req, res, next) => {
 
     if (!hasRole) {
         res.status(401);
-        return res.send('Unauthorized');
+        res.send('Unauthorized');
+        return;
     }
     next();
 }

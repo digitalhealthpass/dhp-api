@@ -11,7 +11,6 @@ const path = require('path');
 const swaggerUI = require('swagger-ui-express');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
-const { BearerStrategy } = require('passport-azure-ad');
 const session = require('cookie-session');
 const events = require('events');
 
@@ -39,24 +38,7 @@ const useHttps = process.env.USE_HTTPS
 let serverCert;
 let serverKey;
 
-const tenantID = process.env.AZURE_TENANT_ID;
-const clientID = process.env.AZURE_CLIENT_ID;
-const audience = process.env.AZURE_AUDIANCE;
-
 const emitter = new events.EventEmitter()
-
-const bearerStrategyOptions = {
-    identityMetadata: `https://login.microsoftonline.com/${  tenantID  }/v2.0/.well-known/openid-configuration`,
-    clientID,
-    issuer: `https://sts.windows.net/${  tenantID  }/`,
-    audience,
-    loggingLevel: "info",
-    passReqToCallback: false
-};
-
-const bearerStrategy = new BearerStrategy(bearerStrategyOptions, (token, done) => {
-    done(null, {}, token);
-});
 
 if (useHttps) {
     const tlsFolder = process.env.TLS_FOLDER_PATH || './config/tls';
@@ -101,8 +83,7 @@ const setupRoutes = () => {
     );
     app.use(bodyParser.json());
     app.use(passport.initialize());
-    passport.use(bearerStrategy);
-
+    
     app.enable('trust proxy');
     // 1 day or by default expires at the end of session.
     const expiryDate = new Date(Date.now() + 1 * 24 * 60 * 60 * 1000);
