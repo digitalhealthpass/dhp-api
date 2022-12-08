@@ -76,6 +76,24 @@ const AUTHORIZED_LOGIN_CREDENTIALS = {
     VERIFIERID_SCHEMA_NAME: 'verifierlogin'
 }
 
+const NOSQL_DB_FILE_NAMES = {
+    CLOUDANT: 'cloudant.js',
+    COSMOSE_DB: 'cosmos-db.js',
+    COUCH_DB: 'couchdb.js',
+}
+
+const AUTH_STRATEGY_FILE_NAMES = {
+    APP_ID: 'app-id-auth-strategy.js',
+    AZURE: 'azure-auth-strategy.js',
+    NONE: 'no-auth-strategy.js',
+}
+
+const KEY_STORE_FILE_NAMES = {
+    KEY_PROTECT: 'key-protect.js',
+    KEY_VAULT: 'key-vault.js',
+    NOSQL: 'nosql-store.js',
+}
+
 module.exports = {
     REQUEST_HEADERS,
     KEY_PAIR_POSTFIX,
@@ -92,4 +110,7 @@ module.exports = {
     CREDENTIAL_TYPES,
     OUTPUT_TYPES,
     AUTHORIZED_LOGIN_CREDENTIALS,
+    NOSQL_DB_FILE_NAMES,
+    AUTH_STRATEGY_FILE_NAMES,
+    KEY_STORE_FILE_NAMES,
 }

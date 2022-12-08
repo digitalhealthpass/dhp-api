@@ -17,13 +17,15 @@ const KeyProtect = require('../../key-store/key-protect');
 const KeyVault = require('../../key-store/key-vault');
 const NoSqlStore = require('../../key-store/nosql-store');
 
+const constants = require('../../helpers/constants');
+
 const { expect } = chai;
 chai.use(chaiAsPromised);
 
 
 describe('test keystore helper', () => {
     it('happy key protect key store', () => {
-        process.env.KEY_STORE_FILE_NAME = 'key-protect.js';
+        process.env.KEY_STORE_FILE_NAME = constants.KEY_STORE_FILE_NAMES.KEY_PROTECT;
         keystoreHelper.init();
         const instance = keystoreHelper.getInstance();
 
@@ -33,7 +35,7 @@ describe('test keystore helper', () => {
     });
 
     it('happy key protect key vault', () => {
-        process.env.KEY_STORE_FILE_NAME = 'key-vault.js';
+        process.env.KEY_STORE_FILE_NAME = constants.KEY_STORE_FILE_NAMES.KEY_VAULT;
         keystoreHelper.init();
         const instance = keystoreHelper.getInstance();
 
@@ -43,7 +45,7 @@ describe('test keystore helper', () => {
     });
 
     it('happy key protect nosql store', () => {
-        process.env.KEY_STORE_FILE_NAME = 'nosql-store.js';
+        process.env.KEY_STORE_FILE_NAME = constants.KEY_STORE_FILE_NAMES.NOSQL;
         keystoreHelper.init();
         const instance = keystoreHelper.getInstance();
 

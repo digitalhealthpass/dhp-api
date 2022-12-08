@@ -12,7 +12,7 @@ const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 const nock = require('nock');
 const jwt = require('jsonwebtoken');
-const { AppIDHelper } = require('healthpass-auth-lib')
+const { AppIDHelper } = require('dhp-auth-lib')
 
 const userHelper = require('../../helpers/user-helper');
 
@@ -22,6 +22,11 @@ chai.use(chaiAsPromised);
 
 describe('test getAppIdHelper()', () => {
     it('happy get app ID helper', () => {
+        process.env.APP_ID_SECRET = 'secret';
+        process.env.APP_ID_TENANT_ID = 'id';
+        process.env.APP_ID_CLIENT_ID = 'id';
+        process.env.APP_ID_URL = 'url';
+
         const helper = userHelper.getAppIdHelper();
         expect(helper).to.be.an.instanceOf(AppIDHelper);
     });
@@ -113,28 +118,5 @@ describe('test loginWithAzureCredentials()', () => {
             .loginWithAzureCredentials('email@email.com', 'password');
 
         expect(actualToken).to.deep.equal(expectedToken);
-    });
-});
-
-describe('test getDefaultIssuerId()', () => {
-    it('happy get default issuer ID', () => {
-        const expected = 'issuer1';
-        process.env.ISSUER_ID = expected;
-
-        const actual = userHelper.getDefaultIssuerId();
-        
-        expect(actual).to.equal(expected);
-    });
-
-    it('unhappy get default issuer ID, env var not set', () => {
-        delete process.env.ISSUER_ID;
-
-        try {
-            userHelper.getDefaultIssuerId();
-        } catch (err) {
-            expect(err.message).to.equal(
-                'Environment variable ISSUER_ID is not set. Please check the deployment'
-            );
-        }
     });
 });

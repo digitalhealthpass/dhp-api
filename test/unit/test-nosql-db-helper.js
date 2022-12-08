@@ -11,11 +11,15 @@
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 
+process.env.COSMOS_DB_URL = 'https://poc.documents.azure.com:443/';
+process.env.COSMOS_DB_KEY = 'key';
+
 const dbHelper = require('../../helpers/nosql-db-helper');
 const NoSqlDB = require('../../nosql-db/nosql-db');
 const Cloudant = require('../../nosql-db/cloudant');
 const CosmosDB = require('../../nosql-db/cosmos-db');
 const CouchDB = require('../../nosql-db/couchdb');
+const constants = require('../../helpers/constants')
 
 const { expect } = chai;
 const { assert } = chai;
@@ -23,7 +27,7 @@ chai.use(chaiAsPromised);
 
 describe('test NoSql DB helper', () => {
     it('happy init cloudant', () => {
-        process.env.NOSQL_DB_FILE_NAME = 'cloudant.js';
+        process.env.NOSQL_DB_FILE_NAME = constants.NOSQL_DB_FILE_NAMES.CLOUDANT;
         dbHelper.init();
         const instance = dbHelper.getInstance();
 
@@ -32,7 +36,7 @@ describe('test NoSql DB helper', () => {
     });
 
     it('happy init cosmos db', () => {
-        process.env.NOSQL_DB_FILE_NAME = 'cosmos-db.js';
+        process.env.NOSQL_DB_FILE_NAME = constants.NOSQL_DB_FILE_NAMES.COSMOSE_DB;
         dbHelper.init();
         const instance = dbHelper.getInstance();
 
@@ -41,7 +45,7 @@ describe('test NoSql DB helper', () => {
     });
 
     it('happy init CouchDb', () => {
-        process.env.NOSQL_DB_FILE_NAME = 'couchdb.js';
+        process.env.NOSQL_DB_FILE_NAME = constants.NOSQL_DB_FILE_NAMES.COUCH_DB;
         dbHelper.init();
         const instance = dbHelper.getInstance();
 
