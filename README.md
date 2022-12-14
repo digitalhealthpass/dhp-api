@@ -56,7 +56,7 @@ Note: Environment variables must be set, as described in following sections, bef
 ```
 cd dhp-api
 npm i
-node start
+npm run start
 ```
 
 To execute all tests run the following from a command line.
